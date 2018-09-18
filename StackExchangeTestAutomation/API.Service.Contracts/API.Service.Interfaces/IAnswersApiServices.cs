@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace API.Service.Contracts
+﻿namespace API.Service.Contracts
 {
+    using API.Models;
+
     public interface IAnswersApiServices
     {
+        string CheckAnswerIsAccepted(int answerId, string order, string sort, string site);
+
+        Answers SchemaValidate(string currentResponse);
     }
 }

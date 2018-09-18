@@ -43,6 +43,11 @@
     <Compile Include="API.Service.Interfaces\IAnswersApiServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\API.Models\API.Models.csproj">
+      <Project>{7A15D768-7D20-4A8B-92ED-22D23CBF1196}</Project>
+      <Name>API.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

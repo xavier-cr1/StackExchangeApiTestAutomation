@@ -3,6 +3,8 @@
     using Autofac;
     using API.Service.Calls;
     using API.Service.Contracts;
+    using DataSource.OpenXml.Contracts;
+    using DataSource.OpenXml;
 
     public static class ServiceContainer
     {
@@ -26,6 +28,9 @@
         {
             var buildContainer = new ContainerBuilder();
             buildContainer.RegisterType<AnswersApiServices>().As<IAnswersApiServices>();
+
+            // Repository
+            buildContainer.RegisterType<DataSourceManager>().As<IDataSourceContracts>();
 
             ServiceCallsContainer = buildContainer.Build();
         }

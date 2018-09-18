@@ -3,7 +3,7 @@
     using API.Models.BaseModels;
     using System.Collections.Generic;
 
-    public class Anserws
+    public class Answers
     {
         public Owner Owner { get; set; }
         public bool IsAccepted { get; set; }

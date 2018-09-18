@@ -62,6 +62,10 @@
       <Project>{00c2ab0a-5841-4106-afb0-e4c6ab38cf8c}</Project>
       <Name>API.Service.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataSource.OpenXml\DataSource.OpenXml.csproj">
+      <Project>{29C201C5-98F7-4AFF-A382-01E9D3628B2E}</Project>
+      <Name>DataSource.OpenXml</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

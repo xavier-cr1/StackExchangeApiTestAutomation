@@ -41,7 +41,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.Service.Calls.Strings\AnswersApiServices.cs" />
+    <Compile Include="API.Service.Calls.Strings\BaseCalls\BaseRequestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API.Service.Contracts\API.Service.Contracts.csproj">
+      <Project>{00c2ab0a-5841-4106-afb0-e4c6ab38cf8c}</Project>
+      <Name>API.Service.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DI.Configuration\DI.Configuration.csproj">
+      <Project>{0493948a-aa4b-4fca-a96d-a080c4e282b8}</Project>
+      <Name>DI.Configuration</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

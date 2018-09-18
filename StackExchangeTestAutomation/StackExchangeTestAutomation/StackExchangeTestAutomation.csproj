@@ -41,14 +41,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="SpecRun.SpecFlowPlugin, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecRun.SpecFlow.2-4-0.1.8.2\lib\net45\SpecRun.SpecFlowPlugin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,29 +59,42 @@
     <Reference Include="TechTalk.SpecFlow, Version=2.4.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.2.4.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
-    <Reference Include="TechTalk.SpecRun, Version=1.8.0.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecRun.SpecFlow.2-4-0.1.8.2\lib\net45\TechTalk.SpecRun.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Steps\AnswerSteps.cs" />
+    <Compile Include="Features\AnswerApiView.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnswerApiView.feature</DependentUpon>
+    </Compile>
     <Compile Include="Steps\Base\BaseStep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Default.srprofile" />
+    <None Include="Features\AnswerApiView.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AnswerApiView.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
-    <None Include="runtests.cmd" />
-    <None Include="SpecRunTestProfile.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SpecRunTestProfile_2011_09.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\" />
+    <ProjectReference Include="..\API.Models\API.Models.csproj">
+      <Project>{7A15D768-7D20-4A8B-92ED-22D23CBF1196}</Project>
+      <Name>API.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\API.Service.Contracts\API.Service.Contracts.csproj">
+      <Project>{00C2AB0A-5841-4106-AFB0-E4C6AB38CF8C}</Project>
+      <Name>API.Service.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataSource.OpenXml\DataSource.OpenXml.csproj">
+      <Project>{29C201C5-98F7-4AFF-A382-01E9D3628B2E}</Project>
+      <Name>DataSource.OpenXml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DI.CrossLayer\DI.CrossLayer.csproj">
+      <Project>{B935286B-8DE6-496E-A017-1E9972ECDCF8}</Project>
+      <Name>DI.CrossLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -94,9 +108,7 @@
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.2.4.0\build\SpecFlow.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.2.4.0\build\SpecFlow.targets'))" />
     <Error Condition="!Exists('..\packages\SpecRun.Runner.1.8.2\build\SpecRun.Runner.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecRun.Runner.1.8.2\build\SpecRun.Runner.props'))" />
-    <Error Condition="!Exists('..\packages\SpecRun.SpecFlow.2-4-0.1.8.2\build\SpecRun.SpecFlow.2-4-0.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecRun.SpecFlow.2-4-0.1.8.2\build\SpecRun.SpecFlow.2-4-0.targets'))" />
   </Target>
   <Import Project="..\packages\MSTest.TestAdapter.1.1.11\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.1.11\build\net45\MSTest.TestAdapter.targets')" />
   <Import Project="..\packages\SpecFlow.2.4.0\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.4.0\build\SpecFlow.targets')" />
-  <Import Project="..\packages\SpecRun.SpecFlow.2-4-0.1.8.2\build\SpecRun.SpecFlow.2-4-0.targets" Condition="Exists('..\packages\SpecRun.SpecFlow.2-4-0.1.8.2\build\SpecRun.SpecFlow.2-4-0.targets')" />
 </Project>

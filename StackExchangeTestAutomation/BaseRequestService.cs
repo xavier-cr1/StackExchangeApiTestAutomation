@@ -7,11 +7,13 @@
     using System.Net;
     using System.Text;
     using System.Threading.Tasks;
+    using DI.Configuration;
 
-    public class RequestType
+    public class BaseRequestService
     {
-        protected string MakeRequest(string requestString, string requestMethod)
+        public string MakeRequest(string requestString, string requestMethod)
         {
+            //var test = ServiceApiConfigurationService.ServiceConfiguration.EnvironmentUrl;
 
             string strResponseValue = string.Empty;
 

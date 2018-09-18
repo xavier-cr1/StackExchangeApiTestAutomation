@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7A15D768-7D20-4A8B-92ED-22D23CBF1196}</ProjectGuid>
+    <ProjectGuid>{29C201C5-98F7-4AFF-A382-01E9D3628B2E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>API.Models</RootNamespace>
-    <AssemblyName>API.Models</AssemblyName>
+    <RootNamespace>DataSource.OpenXml</RootNamespace>
+    <AssemblyName>DataSource.OpenXml</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,22 +30,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.8.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.8.1\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseModels\Answers.cs" />
-    <Compile Include="BaseModels\BaseResponse\ResponseEnd.cs" />
-    <Compile Include="BaseModels\Items.cs" />
-    <Compile Include="BaseModels\Owner.cs" />
-    <Compile Include="Models.JSONSchemas\Class1.cs" />
+    <Compile Include="Contracts\IDataSourceContracts.cs" />
+    <Compile Include="DataSourceManager.cs" />
+    <Compile Include="OpenXmlConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataIn\DataSource.Answers.xls" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API.Models\API.Models.csproj">
+      <Project>{7A15D768-7D20-4A8B-92ED-22D23CBF1196}</Project>
+      <Name>API.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
