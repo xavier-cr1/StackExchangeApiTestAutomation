@@ -1,8 +1,10 @@
 ﻿namespace API.Service.Calls
 {
     using System;
+    using API.Models;
     using API.Service.Contracts;
     using API.ServiceCalls;
+    using API.Models.Models.JSONSchemas;
 
     public class AnswersApiServices : BaseRequestService, IAnswersApiServices
     {
@@ -17,9 +19,9 @@
             return answerRequest;
         }
 
-        public bool HasAnswerExpectedValues(int answerdId, bool accepted, int score, int lastActivityDate, int creationDate)
+        public Answers SchemaValidate(string currentResponse)
         {
-            throw new NotImplementedException();
+            return JsonValidationAnswers.IsValidJson(currentResponse);
         }
     }
 }

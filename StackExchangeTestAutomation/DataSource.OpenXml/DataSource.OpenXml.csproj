@@ -51,7 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DataIn\DataSource.Answers.xls" />
+    <None Include="DataIn\DataInExcel.xls" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

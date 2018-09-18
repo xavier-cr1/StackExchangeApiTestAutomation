@@ -6,10 +6,11 @@
     using System.Collections.Generic;
     using TestData.OpenXml;
     using System.Data;
+    using System.IO;
 
     public class DataSourceManager : IDataSourceContracts
     {
-        private const string _xlsPath = @"\..\StackExchangeTestAutomation\DataSource.OpenXml\DataIn\DataSource.Answers.xlsx";
+        private const string _xlsPath = @"\..\StackExchangeTestAutomation\DataSource.OpenXml\DataIn\DataInExcel.xls";
 
         public Answers GetAnswerById(int answerId)
         {
@@ -23,7 +24,7 @@
 
         private DataTable GetExcelDatableBySheetName(string sheetName)
         {
-            return OpenXmlConnection.ReadExcelSheet(_xlsPath, sheetName);
+            return OpenXmlConnection.ReadExcelSheet(Directory.GetCurrentDirectory() + _xlsPath, sheetName);
         }
     }
 }

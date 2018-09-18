@@ -1,7 +1,7 @@
 ﻿Feature: How to Manage an Answer API
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+	In order to test answers apis
+	As a QA
+	I want to be sure that all of them work
 
 @mytag
 Scenario: Retrive answer with Id, by order, sort and site and compare with expected
