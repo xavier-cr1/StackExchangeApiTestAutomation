@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API.Service.Calls
+namespace API.Models.Models.JSONSchemas
 {
-    public class Class1
+    class Class1
     {
     }
 }

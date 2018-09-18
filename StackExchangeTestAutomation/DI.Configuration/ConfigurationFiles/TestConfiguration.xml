@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestConfiguration>
+  <EnvironmentUrl>https://api.stackexchange.com/2.2/</EnvironmentUrl>
+</TestConfiguration>
